@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     package = null;        # берём Hyprland из системного модуля
     portalPackage = null;
 
