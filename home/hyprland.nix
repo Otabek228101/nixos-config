@@ -44,7 +44,7 @@
         "$mod, B, exec, firefox"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod, V, togglefloating"
+        "$mod SHIFT, V, togglefloating"
         "$mod, L, exec, loginctl lock-session"
         "$mod SHIFT, M, exit"
         "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"

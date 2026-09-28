@@ -14,6 +14,7 @@
       modules = [
         ./hosts/laptop/configuration.nix   # твой родной конфиг из /etc/nixos
         ./modules/desktop.nix              # Hyprland, звук, шрифты, ноутбучное
+        ./modules/extras.nix               # Docker, автовход, Thunar, Bluetooth-трей
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
