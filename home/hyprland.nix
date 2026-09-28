@@ -40,9 +40,20 @@
       };
 
       bind = [
+        "$mod, T, exec, kitty"
         "$mod, Return, exec, kitty"
-        "$mod, D, exec, fuzzel"
-        "$mod, B, exec, firefox"
+        "$mod, A, exec, fuzzel"
+        "$mod, B, exec, zen-beta"
+
+        # Отдельное пространство (как Super+S в HyDE)
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod ALT, S, movetoworkspace, special:magic"
+
+        # Рабочие столы как в Windows: Ctrl+Win+стрелки
+        "CTRL $mod, left, workspace, r-1"
+        "CTRL $mod, right, workspace, r+1"
+        "CTRL $mod SHIFT, left, movetoworkspace, r-1"
+        "CTRL $mod SHIFT, right, movetoworkspace, r+1"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
         "$mod SHIFT, V, togglefloating"

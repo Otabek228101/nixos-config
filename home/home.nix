@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, zen, ... }:
 {
   imports = [ ./hyprland.nix ./waybar.nix ./extras.nix ];
 
@@ -7,12 +7,25 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    firefox
+    zen                 # основной браузер
+    firefox             # запасной, можно убрать
+    bitwarden-desktop
+    telegram-desktop
     brightnessctl playerctl pavucontrol
     grim slurp wl-clipboard
   ];
 
   programs.git.enable = true;
+
+  # Zen — браузер по умолчанию
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "zen-beta.desktop";
+      "x-scheme-handler/http" = "zen-beta.desktop";
+      "x-scheme-handler/https" = "zen-beta.desktop";
+    };
+  };
 
   # Автозапуск Hyprland при логине в tty1
   programs.fish = {
