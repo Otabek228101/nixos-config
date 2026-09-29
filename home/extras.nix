@@ -5,7 +5,7 @@ in
 {
   home.packages = with pkgs; [
     onlyoffice-desktopeditors   
-    obsidian
+#    obsidian
     gnome-text-editor          
     papers                     
     loupe                      
@@ -89,6 +89,5 @@ in
     "image/webp" = "org.gnome.Loupe.desktop";
     "image/gif" = "org.gnome.Loupe.desktop";
   };
-  fonts.packages = [ pkgs.corefonts ];
 }
 

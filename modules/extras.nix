@@ -20,4 +20,5 @@
 
   # Нужен для GTK-тем
   programs.dconf.enable = true;
+  fonts.packages = [ pkgs.corefonts ];
 }
