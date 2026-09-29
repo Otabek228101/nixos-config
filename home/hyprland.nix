@@ -72,7 +72,7 @@
         "CTRL $mod SHIFT, right, movetoworkspace, r+1"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod, W togglefloating"
+        "$mod, W, togglefloating"
         "$mod, L, exec, loginctl lock-session"
         "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
         "$mod, left, movefocus, l"
