@@ -39,7 +39,7 @@ in
   }
 
   # --- Hyprland: обои, курсор, новые хоткеи ---
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland.settings {
     env = [ "XCURSOR_THEME,Bibata-Modern-Classic" "XCURSOR_SIZE,24" ];
     exec-once = [ "${pkgs.swaybg}/bin/swaybg -m fill -i ${wallpaper}" ];
     bind = [
