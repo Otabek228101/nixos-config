@@ -7,8 +7,8 @@
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-    zen                 # основной браузер
-    firefox             # запасной, можно убрать
+    zen                 
+    firefox            
     bitwarden-desktop
     telegram-desktop
     brightnessctl playerctl pavucontrol
@@ -17,7 +17,6 @@
 
   programs.git.enable = true;
 
-  # Zen — браузер по умолчанию
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
@@ -27,7 +26,7 @@
     };
   };
 
-  # Автозапуск Hyprland при логине в tty1
+ 
   programs.fish = {
     enable = true;
     loginShellInit = ''
@@ -40,6 +39,10 @@
   programs.kitty = {
     enable = true;
     settings = {
+      cursor_trail = 3;
+      cursor_trail_decay = "0.1 0.4";
+      cursor_trail_start_threshold = 2;
+      cursor_shape = "beam";
       window_padding_width = 8;
       confirm_os_window_close = 0;
     };
@@ -55,7 +58,6 @@
     settings = { default-timeout = 5000; border-radius = 4; };
   };
 
-  # Блокировка экрана и сон
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -73,8 +75,8 @@
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
       listener = [
-        { timeout = 300; on-timeout = "loginctl lock-session"; }
-        { timeout = 600; on-timeout = "systemctl suspend"; }
+        { timeout = 600; on-timeout = "loginctl lock-session"; }
+        { timeout = 1800; on-timeout = "systemctl suspend"; }
       ];
     };
   };

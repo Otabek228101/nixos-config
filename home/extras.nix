@@ -4,6 +4,12 @@ let
 in
 {
   home.packages = with pkgs; [
+    onlyoffice-desktopeditors   
+    obsidian
+    gnome-text-editor          
+    papers                     
+    loupe                      
+    file-roller               
     vscode
     docker-compose
     btop ripgrep fd jq curl unzip
@@ -29,7 +35,7 @@ in
   # --- История буфера обмена (Super+V) ---
   services.cliphist.enable = true;
 
-  # --- Ночной режим (координаты Ташкента, поправь под свой город) ---
+  # --- Ночной режим ---
   services.gammastep = {
     enable = true;
     provider = "manual";
@@ -52,16 +58,16 @@ in
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
-      uosc        # современный интерфейс
-      thumbfast   # превью при перемотке
-      mpris       # управление медиаклавишами и через playerctl
+      uosc        
+      thumbfast   
+      mpris       
     ];
     config = {
-      hwdec = "auto-safe";            # аппаратное декодирование на Intel
+      hwdec = "auto-safe";            
       vo = "gpu-next";
-      keep-open = "yes";              # не закрываться в конце видео
-      save-position-on-quit = "yes";  # продолжать с того же места
-      osc = "no";                     # стандартную панель заменяет uosc
+      keep-open = "yes";              
+      save-position-on-quit = "yes";  
+      osc = "no";                  
       osd-bar = "no";
       border = "no";
     };
@@ -76,6 +82,13 @@ in
     "video/mpeg" = "mpv.desktop";
     "audio/mpeg" = "mpv.desktop";
     "audio/flac" = "mpv.desktop";
+    "text/plain" = "org.gnome.TextEditor.desktop";
+    "application/pdf" = "org.gnome.Papers.desktop";
+    "image/png" = "org.gnome.Loupe.desktop";
+    "image/jpeg" = "org.gnome.Loupe.desktop";
+    "image/webp" = "org.gnome.Loupe.desktop";
+    "image/gif" = "org.gnome.Loupe.desktop";
   };
+  fonts.packages = [ pkgs.corefonts ];
 }
 

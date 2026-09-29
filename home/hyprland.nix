@@ -3,7 +3,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "hyprlang";
-    package = null;        # берём Hyprland из системного модуля
+    package = null;    
     portalPackage = null;
 
     settings = {
@@ -28,7 +28,7 @@
 
       decoration = {
         rounding = 10;
-        blur.enabled = false;          # размытие выключено ради батареи и плавности
+        blur.enabled = false;
         shadow = {
           enabled = true;
           range = 12;
@@ -60,23 +60,20 @@
       bind = [
         "$mod, T, exec, kitty"
         "$mod, Return, exec, kitty"
-        "$mod, A, exec, fuzzel"
+        "$mod, A, exec, pkill fuzzel || fuzzel"
         "$mod, B, exec, zen-beta"
 
-        # Отдельное пространство (как Super+S в HyDE)
         "$mod, S, togglespecialworkspace, magic"
         "$mod ALT, S, movetoworkspace, special:magic"
 
-        # Рабочие столы как в Windows: Ctrl+Win+стрелки
         "CTRL $mod, left, workspace, r-1"
         "CTRL $mod, right, workspace, r+1"
         "CTRL $mod SHIFT, left, movetoworkspace, r-1"
         "CTRL $mod SHIFT, right, movetoworkspace, r+1"
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
-        "$mod SHIFT, V, togglefloating"
+        "$mod, W togglefloating"
         "$mod, L, exec, loginctl lock-session"
-        "$mod SHIFT, M, exit"
         "$mod SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
