@@ -20,16 +20,36 @@
       gesture = [ "3, horizontal, workspace" ];
 
       general = {
-        gaps_in = 3;
-        gaps_out = 6;
+        gaps_in = 5;
+        gaps_out = 10;
         border_size = 2;
         layout = "dwindle";
       };
 
       decoration = {
-        rounding = 4;
-        blur.enabled = false;
-        shadow.enabled = false;
+        rounding = 10;
+        blur.enabled = false;          # размытие выключено ради батареи и плавности
+        shadow = {
+          enabled = true;
+          range = 12;
+          render_power = 3;
+        };
+      };
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "smooth, 0.25, 1, 0.5, 1"
+          "overshot, 0.05, 0.9, 0.1, 1.05"
+        ];
+        animation = [
+          "windows, 1, 4, overshot, slide"
+          "windowsOut, 1, 4, smooth, popin 80%"
+          "border, 1, 8, default"
+          "fade, 1, 5, smooth"
+          "workspaces, 1, 5, smooth, slide"
+          "specialWorkspace, 1, 5, smooth, slidevert"
+        ];
       };
 
       misc = {
