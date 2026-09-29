@@ -48,5 +48,34 @@ in
       "$mod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
     ];
   };
+    # --- Видео: mpv ---
+  programs.mpv = {
+    enable = true;
+    scripts = with pkgs.mpvScripts; [
+      uosc        # современный интерфейс
+      thumbfast   # превью при перемотке
+      mpris       # управление медиаклавишами и через playerctl
+    ];
+    config = {
+      hwdec = "auto-safe";            # аппаратное декодирование на Intel
+      vo = "gpu-next";
+      keep-open = "yes";              # не закрываться в конце видео
+      save-position-on-quit = "yes";  # продолжать с того же места
+      osc = "no";                     # стандартную панель заменяет uosc
+      osd-bar = "no";
+      border = "no";
+    };
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "video/mp4" = "mpv.desktop";
+    "video/x-matroska" = "mpv.desktop";
+    "video/webm" = "mpv.desktop";
+    "video/x-msvideo" = "mpv.desktop";
+    "video/quicktime" = "mpv.desktop";
+    "video/mpeg" = "mpv.desktop";
+    "audio/mpeg" = "mpv.desktop";
+    "audio/flac" = "mpv.desktop";
+  };
 }
 
