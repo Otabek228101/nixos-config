@@ -36,6 +36,7 @@ in
     latitude = 41.3;
     longitude = 69.3;
     temperature = { day = 6500; night = 3700; };
+  }
 
   # --- Hyprland: обои, курсор, новые хоткеи ---
   wayland.windowManager.hyprland.settings = {
