@@ -36,10 +36,10 @@ in
     latitude = 41.3;
     longitude = 69.3;
     temperature = { day = 6500; night = 3700; };
-  }
+  };
 
   # --- Hyprland: обои, курсор, новые хоткеи ---
-  wayland.windowManager.hyprland.settings {
+  wayland.windowManager.hyprland.settings = {
     env = [ "XCURSOR_THEME,Bibata-Modern-Classic" "XCURSOR_SIZE,24" ];
     exec-once = [ "${pkgs.swaybg}/bin/swaybg -m fill -i ${wallpaper}" ];
     bind = [
