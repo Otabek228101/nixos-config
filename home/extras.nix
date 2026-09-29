@@ -5,7 +5,7 @@ in
 {
   home.packages = with pkgs; [
     onlyoffice-desktopeditors   
-#    obsidian
+    obsidian
     gnome-text-editor          
     papers                     
     loupe                      
