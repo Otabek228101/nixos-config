@@ -1,6 +1,6 @@
 { pkgs, zen, ... }:
 {
-  imports = [ ./hyprland.nix ./waybar.nix ./extras.nix ];
+  imports = [ ./hyprland.nix ./waybar.nix ./extras.nix ./theme.nix ];
 
   home.username = "den";
   home.homeDirectory = "/home/den";
@@ -39,18 +39,15 @@
 
   programs.kitty = {
     enable = true;
-    font = { name = "JetBrainsMono Nerd Font"; size = 11; };
     settings = {
       window_padding_width = 8;
       confirm_os_window_close = 0;
-      background = "#1a1b26";
-      foreground = "#c0caf5";
     };
   };
 
   programs.fuzzel = {
     enable = true;
-    settings.main = { font = "JetBrainsMono Nerd Font:size=11"; width = 40; };
+    settings.main.width = 40;
   };
 
   services.mako = {

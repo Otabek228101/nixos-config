@@ -13,6 +13,7 @@
       input = {
         kb_layout = "us,ru";
         kb_options = "grp:alt_shift_toggle";
+        numlock_by_default = true;
         touchpad = { natural_scroll = true; tap-to-click = true; };
       };
 
@@ -22,8 +23,6 @@
         gaps_in = 3;
         gaps_out = 6;
         border_size = 2;
-        "col.active_border" = "rgb(7aa2f7)";
-        "col.inactive_border" = "rgb(2a2e3f)";
         layout = "dwindle";
       };
 
@@ -36,7 +35,6 @@
       misc = {
         disable_hyprland_logo = true;
         force_default_wallpaper = 0;
-        background_color = "rgb(1a1b26)";
       };
 
       bind = [
@@ -67,7 +65,7 @@
       ] ++ (builtins.concatLists (builtins.genList (i:
         let ws = toString (i + 1); in [
           "$mod, ${ws}, workspace, ${ws}"
-          "$mod SHIFT, ${ws}, movetoworkspace, ${ws}"
+          "$mod ALT, ${ws}, movetoworkspace, ${ws}"
         ]) 9));
 
       bindel = [

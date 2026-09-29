@@ -7,6 +7,7 @@ in
     vscode
     docker-compose
     btop ripgrep fd jq curl unzip
+    moonlight-qt
   ];
 
   # --- Dev ---
@@ -35,21 +36,6 @@ in
     latitude = 41.3;
     longitude = 69.3;
     temperature = { day = 6500; night = 3700; };
-  };
-
-  # --- Тема GTK, иконки, курсор ---
-  gtk = {
-    enable = true;
-    theme = { name = "adw-gtk3-dark"; package = pkgs.adw-gtk3; };
-    iconTheme = { name = "Papirus-Dark"; package = pkgs.papirus-icon-theme; };
-  };
-  home.pointerCursor = {
-    name = "Bibata-Modern-Classic";
-    package = pkgs.bibata-cursors;
-    size = 24;
-    gtk.enable = true;
-  };
-  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
   # --- Hyprland: обои, курсор, новые хоткеи ---
   wayland.windowManager.hyprland.settings = {

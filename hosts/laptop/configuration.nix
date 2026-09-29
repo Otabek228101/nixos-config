@@ -135,5 +135,11 @@
   '';
   boot.consoleLogLevel=3;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [
+    "rtw88_pci.disable_aspm=1"
+    "rtw88_core.disable_lps_deep=1"
+    "rtw88_pci.disable_msi=1"
+  ];
+  networking.networkmanager.wifi.scanRandMacAddress = false;
 }
 

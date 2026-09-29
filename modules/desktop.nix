@@ -45,6 +45,13 @@
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
-  nix.settings.auto-optimise-store = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
+  nix.settings.auto-optimise-store = true; 
+  # Tailscale — приватная сеть между твоими устройствами
+  services.tailscale.enable = true;
+  networking.firewall = {
+    trustedInterfaces = [ "tailscale0" ];
+    checkReversePath = "loose";   # рекомендуется для Tailscale
+  };
 }
  

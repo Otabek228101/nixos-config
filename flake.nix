@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,12 +18,14 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, zen-browser, ... }: {
+  outputs = { nixpkgs, home-manager, zen-browser, stylix, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/laptop/configuration.nix   # твой родной конфиг из /etc/nixos
         ./modules/desktop.nix              # Hyprland, звук, шрифты, ноутбучное
         ./modules/extras.nix               # Docker, автовход, Thunar, Bluetooth-трей
+        ./modules/theme.nix                # Stylix: Tokyo Night для всего
+        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
